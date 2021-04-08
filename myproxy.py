@@ -25,7 +25,7 @@ def hello_world():
                 cursor = cnx.cursor()
                 cursor.execute(
                     "INSERT INTO myproxy.log VALUES(%s, %s, %s)",
-                    (now, ip_client, "http://b.com")
+                    (now, ip_client, request.args['url'])
                 )
                 cnx.commit()
                 return  r.content
