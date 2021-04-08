@@ -21,11 +21,11 @@ def hello_world():
 	            ip = J['ip']
 
                 now = datetime.now()
-                cnx = mysql.connector.connect(user='myproxy', database='myproxy', host=ip_client, password='1234zxcv')
+                cnx = mysql.connector.connect(user='myproxy', database='myproxy', host=ip, password='1234zxcv')
                 cursor = cnx.cursor()
                 cursor.execute(
                     "INSERT INTO myproxy.log VALUES(%s, %s, %s)",
-                    (now, ip, "http://b.com")
+                    (now, ip_client, "http://b.com")
                 )
                 cnx.commit()
                 return  r.content
