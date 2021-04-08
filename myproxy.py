@@ -15,11 +15,9 @@ def hello_world():
         try:
             r = requests.get(request.args['url'])
             if r.status_code == 200:
-                
                 ip_client = request.remote_addr
                 J = json.load(open('/config/config.json'))
 	            ip = J['ip']
-
                 now = datetime.now()
                 cnx = mysql.connector.connect(user='myproxy', database='myproxy', host=ip, password='1234zxcv')
                 cursor = cnx.cursor()
